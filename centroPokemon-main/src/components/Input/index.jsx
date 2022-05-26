@@ -1,5 +1,20 @@
 import React, { useContext, useState } from "react";
 import { FormularioContext } from '../../context/contextoFormulario';
+import PropTypes from 'prop-types';
+
+/**
+ * Componente que controla os inputs do formulário
+ * @author Felipe Rodrigues De Melo
+ * @param {{
+ *  name: string,
+ *  label:string,
+ *  type: string,
+ *  shouldFocus: boolean,
+ *  isPokemon: boolean,
+ * }} props
+ * @returns {JSX.Element}
+ */
+
 
 const Input = ({ name, label, type = "text" }) => {
   // Aqui devemos acessar o estado global para obter os dados
@@ -14,6 +29,15 @@ const Input = ({ name, label, type = "text" }) => {
     // Aqui devemos atualizar o estado local do input
     setValorCampo(e.target.value);
   };
+
+  /**
+   * Função que lida com a inserção dos dados do usuário após a perda de foco.
+   * @author Felipe Rodrigues De Melo
+   * @param {String} type
+   * @param {{
+   *    [string]: string,
+   * }} valorInput
+   */
 
   const onBlur = (e) => {
     e.preventDefault();
@@ -42,4 +66,14 @@ const Input = ({ name, label, type = "text" }) => {
   );
 };
 
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  Label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  shouldFocus: PropTypes.bool.isRequired,
+  isPokemon: PropTypes.bool.isRequired,
+};
+
+
 export default Input;
+
