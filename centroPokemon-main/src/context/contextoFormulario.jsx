@@ -1,5 +1,6 @@
 // Aqui devemos criar nosso contexto e nosso provider.
 import { createContext, useReducer } from "react";
+import PropTypes from "prop-types";
 
 export const FormularioContext = createContext();
 
@@ -17,6 +18,21 @@ const initialState = {
     idadePokemon: 0,
   },
 };
+
+/**
+ * Função redutora para o HOOK useReduce com o estado do formulário que atualiza o estado com base na ação.
+ *
+ * @author Felipe Rodrigues De Melo
+ * @param {initialState} state
+ * @param {{
+ *   type: string,
+ *   payload: {
+ *    [string]: string,
+ * }} action
+ *
+ * @returns {state}
+ */
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -54,4 +70,11 @@ const FormularioContextProvider = ({ children }) => {
   );
 };
 
+FormularioContextProvider.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element),
+};
+
+
+
 export default FormularioContextProvider;
+
