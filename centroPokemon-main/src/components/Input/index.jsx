@@ -67,11 +67,11 @@ const Input = ({ name, label, type = "text" }) => {
 };
 
 Input.propTypes = {
-  name: PropTypes.string.isRequired,
-  Label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  shouldFocus: PropTypes.bool.isRequired,
-  isPokemon: PropTypes.bool.isRequired,
+  name: PropTypes.string,
+  Label: PropTypes.string,
+  type: PropTypes.string,
+  shouldFocus: PropTypes.bool,
+  isPokemon: PropTypes.bool,
 };
 
 
